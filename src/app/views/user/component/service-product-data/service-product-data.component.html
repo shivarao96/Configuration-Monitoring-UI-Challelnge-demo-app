@@ -1,0 +1,39 @@
+<div id="{{product.Config_Id}}" class="service-product-container">
+    <img (click)="deleteElem()" class="delete-elem" src="assets/images/close.png" />
+    <div class="details">
+        <div class="info flex-body">
+            <div class="service-id flex-body"> 
+                <img src="../../../../../assets/images/gear-svgrepo-com.svg" />
+                <div>
+                    <div class="service-name">Service</div>
+                    <code>({{service.service_name}})</code>
+                </div>
+            </div>
+            <div class="product-id flex-body">
+                <img src="../../../../../assets/images/product-hunt-svgrepo-com.svg" />
+                <div>
+                    <div class="product-name">Product</div>
+                    <code>({{product.product_name}})</code>
+                </div>
+            </div>
+        </div>
+        <button class="edit" (click)="buttonAction()">{{isEdit ? 'Edit' : 'Cancel'}}</button>
+    </div>
+    <div *ngIf="!isEdit" class="edit-action">
+        <div class="flex-body">
+            <app-common-selector
+                [mainLabel]="'Services'"
+                [options]="serviceList"
+                [selectedVal]="selectedServiceId"
+                (optionSelectedValue)="selectedServiceIndex($event)"
+            ></app-common-selector>
+            <app-common-selector
+                [mainLabel]="'Products'"
+                [options]="productList"
+                [selectedVal]="selectedProductId"
+                (optionSelectedValue)="selectedProductIndex($event)"
+            ></app-common-selector>
+        </div>
+        <button class="save" (click)="saveAction()">Save</button>
+    </div>
+</div>

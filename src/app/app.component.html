@@ -1,12 +1,23 @@
 <header>
   <div class="logo">
-    <span>Configuration</span>/<span>Monitoring</span>
+    <span class="configuration" (click)="navigateToHome()">Configuration</span>
+    <span>
+      <span>&nbsp;/&nbsp;</span>
+      <span class="monitoring">Monitoring</span>
+    </span>
   </div>
+  <app-logger-console></app-logger-console>
 </header>
 
-<section>
-  <!-- main section -->
-</section>
+<div class="bottom-container">
+  <section class="main-body">
+    <router-outlet></router-outlet>
+  </section>
+  <footer>
+    <div class="dev-info">Developed By&nbsp;<a href="https://www.linkedin.com/in/shiva-rao-584a67153/">Shiva Rao
+        Alka</a></div>
+  </footer>
+</div>
 
-
-<footer></footer>
+<app-common-throbber></app-common-throbber>
+<app-common-toaster></app-common-toaster>

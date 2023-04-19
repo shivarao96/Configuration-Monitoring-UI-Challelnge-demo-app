@@ -1,0 +1,10 @@
+<form class="select-form">
+    <div class="select-container">
+        <label class="select-label" for="attr-select">{{mainLabel}}</label>
+        <div class="select-wrapper">
+            <select class="select select-single" id="attr-select" (change)="optionSelected($event)">
+                <option *ngFor="let option of options" [value]="option.index" [selected]="option.index === selectedVal">{{option.val}}</option>
+            </select>
+        </div>
+    </div>
+</form>

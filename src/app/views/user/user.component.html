@@ -1,1 +1,102 @@
-<p>user works!</p>
+<section class="user-section">
+    <ng-container *ngIf="userData.length === 0; else userConfigData" >
+        <div class="data-status">User config Not Found !, please upload a user config file.</div>
+        <app-common-file-uploader (uploadedFile)="uploadUserConfig($event)"></app-common-file-uploader>
+    </ng-container>
+    <ng-template #userConfigData>
+        <div style="display: inline-block;" (click)="reuploadConfig()">
+            <div class="reupload-action">
+                <span class="label">Reupload the user config !</span>
+                <span><img src="../../../assets/images/reload.png"></span>
+            </div>
+        </div>
+        <div class="user-data-actions">
+            <button class="add-service-product primary-button" (click)="addNewGroupData()">Add new group data</button>
+            <div class="filter-user-data">
+                <img class="filter-img" src="assets/images/filter.png" (click)="toggleFilter()" #filtertogglebtn />
+                <div *ngIf="showFilterPopup" class="fitler-popup" #filterpopup>
+                    <div class="flex-body filter-selector">
+                        <app-common-selector
+                            [mainLabel]="'G'"
+                            [options]="groups"
+                            [selectedVal]="0"
+                            (optionSelectedValue)="selectedGroupIndex($event, true)"
+                        ></app-common-selector>
+                        <button class="apply" (click)="applyGroupFilter()">
+                            Apply
+                        </button>
+                    </div>
+
+                    <div class="flex-body filter-selector">
+                        <app-common-selector
+                            [mainLabel]="'S'"
+                            [options]="services"
+                            [selectedVal]="0"
+                            (optionSelectedValue)="selectedServiceIndex($event, true)"
+                        ></app-common-selector>
+                        <button class="apply" (click)="applyServiceFilter()">
+                            Apply
+                        </button>
+                    </div>
+
+                    <div class="flex-body filter-selector">
+                        <app-common-selector
+                            [mainLabel]="'P'"
+                            [options]="products"
+                            [selectedVal]="0"
+                            (optionSelectedValue)="selectedProductIndex($event, true)"
+                        ></app-common-selector>
+                        <button class="apply" (click)="applyProductFilter()">
+                            Apply
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="selected-filter" *ngIf="selectedFilterKeyVal.val && selectedFilterKeyVal.key && infoSet.get(selectedFilterKeyVal.key) && infoSet.get(selectedFilterKeyVal.key).length">
+            <div class="filtered-val-name">{{selectedFilterKeyVal.key | titlecase}}&nbsp;:&nbsp;{{getFilterVal()}}</div>
+            <img class="clear-filter" (click)="clearAllFilter()" src="../../../assets/images/close.png" />
+        </div>
+        <app-common-overlay *ngIf="showOverlay" (closeOverlay)="showOverlay = false">
+            <div class="create-new-element">
+                <div class="action-info">
+                    {{currentAction === 'add_new_group_data' ? 'Add new group data' : 'Add service and product in selected group'}}
+                </div>
+                <div class="selector">
+                    <app-common-selector *ngIf="currentAction === 'add_new_group_data'"
+                        [mainLabel]="'Groups'"
+                        [options]="groups"
+                        [selectedVal]="0"
+                        (optionSelectedValue)="selectedGroupIndex($event)"
+                    ></app-common-selector>
+                    <app-common-selector
+                        [mainLabel]="'Services'"
+                        [options]="services"
+                        [selectedVal]="0"
+                        (optionSelectedValue)="selectedServiceIndex($event)"
+                    ></app-common-selector>
+                    <app-common-selector
+                        [mainLabel]="'Products'"
+                        [options]="products"
+                        [selectedVal]="0"
+                        (optionSelectedValue)="selectedProductIndex($event)"
+                    ></app-common-selector>
+                </div>
+                <button class="save-changes" (click)="save()">Save</button>
+            </div>
+        </app-common-overlay>
+        <div *ngIf="userData && userData.length">
+            <ng-container *ngFor="let group of userData; let i = index">
+                <app-grouped-data 
+                    [groupData]="group"
+                    [groupList]="groups"
+                    [productList]="products"
+                    [serviceList]="services"
+                    (openGroupOverlay)="openAddPrdSrvOverlay($event)"
+                    (reloadMetaInfo)="captureReloadMetaInfo($event)"
+                ></app-grouped-data>
+            </ng-container>
+        </div>
+        <app-common-pagination [count]="count" [recordsPerPage]="10"  (onPageChange)="changePage($event)"></app-common-pagination>
+    </ng-template>
+</section>

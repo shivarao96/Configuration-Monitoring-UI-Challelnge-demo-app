@@ -1,0 +1,34 @@
+<div class="logger-console-container">
+  <img class="console-selector-img console-menu-blinker" src="../assets/images/terminal.png" (click)="openLogger()" />
+  
+  <app-common-overlay *ngIf="openUploader" (closeOverlay)="openUploader = false">
+    <div class="logger-uploader">
+      <h1>
+        Please upload the logger file !
+      </h1>
+      <app-common-file-uploader (uploadedFile)="uploadUserConfig($event)"></app-common-file-uploader>
+    </div>
+  </app-common-overlay>
+  
+  <div class="console" *ngIf="enableLogger">
+    <img class="close-console" src="assets/images/close.png" alt="close" (click)="closeLogger()"/>
+    <header>
+        <p>{{loggerType | titlecase }} config Logs</p>
+      </header>
+      <div class="consolebody">
+        <div class="info-header">
+          <p>> {{loggerType | titlecase }} log data presented below...</p>
+          <div class="console-search">
+            <input [(ngModel)]="searchedVal" (ngModelChange)="searchLogs($event)" type="text" placeholder="search here ..." />
+          </div>
+        </div>
+        <div class="main-logs" >
+          <ng-container *ngFor="let log of loggerInfo; let i = index">
+            <p #theLastList *ngIf="i === (loggerInfo.length - 1)" >> {{log}}</p>
+            <p *ngIf="i !== (loggerInfo.length - 1)" >> {{log}}</p>
+          </ng-container>
+          <div class="style-blinker" *ngIf="showConsoleLoader"></div>
+        </div>
+      </div>
+    </div>
+  </div>

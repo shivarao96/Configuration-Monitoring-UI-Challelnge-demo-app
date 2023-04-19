@@ -1,0 +1,36 @@
+:host {
+  display: block;
+  margin-bottom: 60px;
+}
+
+.service-product-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @media only screen and (max-width: 767px) {
+      justify-content: center;
+    }
+  }
+    .group-name {
+      font-family: "robotoBold";
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .group-data-container {
+      border: 2px solid #B9BDCF;
+      padding: 40px 20px;
+  }
+
+  .flex-body.group-action {
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.add-service-product {
+  @media screen and (max-width: 467px) {
+    width: 100px;
+    height: auto;
+    line-height: 18px;
+  }
+}

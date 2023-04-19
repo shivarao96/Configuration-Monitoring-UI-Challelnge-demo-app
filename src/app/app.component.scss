@@ -1,0 +1,78 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    // height: 95px;
+    background-color: #F6F7FB;
+    z-index: 2;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+}
+
+.logo {
+    font-size: 20px;
+    font-family: 'robotoRegular';
+    color: #393B44;
+    padding: 25px 0;
+    border-bottom: 2px solid #B9BDCF;
+    margin: 0 30px;
+    box-sizing: border-box;
+
+    .configuration {
+        font-size: 36px;
+        font-family: 'robotoBold';
+    }
+
+    .monitoring {
+        font-size: 18px;
+        font-weight: 800;
+        font-family: 'robotoThin';
+    }
+
+    @media screen and (max-width: 467px) {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.main-body {
+    padding: 0 30px 40px 30px;
+    // height: calc(100vh - 215px);
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 100%;
+    box-sizing: border-box;
+    // overflow: auto;
+
+    @media screen and (max-width: 598px) {
+        padding: 0 20px 30px 20px;
+    }
+}
+
+footer {
+    background-color: #393B44;
+    height: 120px;
+    margin: 0;
+}
+
+.bottom-container {
+    height: calc(100vh - 95px);
+    overflow: auto;
+    margin-top: 95px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dev-info {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    color: white;
+    height: 120px;
+    align-items: center;
+}

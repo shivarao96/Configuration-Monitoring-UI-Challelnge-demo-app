@@ -1,1 +1,73 @@
-<p>configuration works!</p>
+<section class="configuration-section">
+    
+    <ng-container *ngIf="!systemData; else configData" >
+        <div class="data-status">System config Not Found !, please upload a system config file.</div>
+        <app-common-file-uploader (uploadedFile)="uploadUserConfig($event)" ></app-common-file-uploader>
+        <!-- <article class="configuration-article">
+            Hey there! If you're using our System.config tab to manage multiple instances of a service running on remote Linux machines, we've got some exciting news for you!
+            <br><br>
+            First off, the System.config tab reads the [ECMG] section, where each line represents a single instance of the service, complete with its unique instance_id, IP, port, and allowed clients. That way, you can easily manage and configure each instance of the service, all in one convenient location.
+            <br><br>
+            And that's not all! To make things even easier, we've included a green icon-based placeholder for each instance_id, along with its corresponding IP and port, so you can quickly identify each instance of the service. Plus, we've included the allowed client IP addresses, so you know exactly who can connect to each instance.
+            <br>
+            <code>
+                [ECMG]<br>
+                # &lt;ECMG-INSTANCE-ID&gt;:&lt;ECMG-IP&gt;:&lt;ECMG-PORT&gt;:&lt;MUX_IP_LIST&gt;<br>
+                1: 192.168.1.62: 1001: 192.168.1.16, 192.168.1.62<br>
+            </code>
+            <br>
+            But wait, there's more! The remaining part of the System.config file has a set of configuration parameters that are shared among all instances. Each parameter is displayed as a line item with an editable value and a submit button. And if you're not sure what a particular parameter does, don't worry! The UI maintains and displays double-hashed ('##') based comments against each parameter, so you can easily understand what it does.
+            <br>
+            <code>
+                [SIMULCRYPT]<br>
+                <br>
+                ## The Super_CAS_id is a 32-bit identifier formed by the concatenation of the CA_system_id (16 bit) and <br>
+                ## the CA_subsystem_id (16 bit). It shall identify uniquely a (set of) ECMG(s) for a given SCS,<br>
+                <br>
+                #Super_CAS_id:0x56010000<br>
+            </code>
+            <br>
+            So what are you waiting for? It's time to upload your file and start managing your service instances like a pro!
+        </article> -->
+    </ng-container>
+    <ng-template #configData>
+        <div style="display: inline-block;" (click)="reuploadConfig()">
+            <div class="reupload-action">
+                <span class="label">Reupload the System config !</span>
+                <span><img src="../../../assets/images/reload.png"></span>
+            </div>
+        </div>
+        <section class="current-accessed-instance common-container">
+            <div class="heading">Accessed Instances</div>
+            <div class="instance-info-wrapper" *ngIf="systemData && systemData.ECMG">
+                <div class="instance-container" *ngFor="let instance of systemData.ECMG">
+                    <div class="meta-info">
+                        <div class="instance-wrapper flex-body meta-info-c">
+                            <div class="style-blinker"></div>
+                            <div class="instance-id flex-body">Instance ID <code >({{instance.instance_id}})</code></div>
+                        </div>
+                        <div class="meta-info-c flex-body">IP <code >({{instance.ip}})</code></div>
+                        <div class="meta-info-c flex-body">PORT <code >({{instance.port}})</code></div>
+                    </div>
+                    <div class="clients-info">
+                        <div class="allowed-client" *ngFor="let client of instance.ip_list; let i = index">
+                            <div class="flex-body">Client {{i+1}} <code >({{client}})</code></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="instance-shared-property common-container">
+            <div (click)="downloadSystemConfig()" class="download-system-config">
+                <img  src="../../../assets/images/documents.png" />
+            </div>
+            <div class="heading">Instances property</div>
+            <div class="property-info-wrapper" *ngIf="systemData && systemData.SIMULCRYPT">
+                <div *ngFor="let props of systemData.SIMULCRYPT">
+                    <app-system-property-handler [propertyMetaData]="props"></app-system-property-handler>
+                </div>
+            </div>
+        </section>
+    </ng-template>
+
+</section>

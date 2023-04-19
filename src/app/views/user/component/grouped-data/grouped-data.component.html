@@ -1,0 +1,24 @@
+<div class="group-data-container">
+    <div class="flex-body group-action">
+        <h1 class="group-name">{{groupData.group_name | titlecase}}</h1>
+        <button class="add-service-product primary-button" (click)="openOverlay()">Add new info into group</button>
+    </div>
+    <div class="service-product-wrapper">
+        <ng-container *ngIf="groupData.services && groupData.services.length">
+            <ng-container *ngFor="let service of groupData.services">
+                <ng-container *ngIf="service.products && service.products.length">
+                    <ng-container *ngFor="let product of service.products">
+                        <app-service-product-data
+                            [service]="service"
+                            [product]="product"
+                            [productList]="productList"
+                            [serviceList]="serviceList"
+                            [groupData]="groupData"
+                            (reloadMetaInfo)="captureReloadMetaInfo($event)"
+                        ></app-service-product-data>
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </ng-container>
+    </div>
+</div>

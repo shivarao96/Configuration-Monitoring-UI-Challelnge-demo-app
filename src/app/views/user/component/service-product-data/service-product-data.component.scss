@@ -1,0 +1,82 @@
+:host {
+    width: 48%;
+
+    @media only screen and (max-width: 1023px) and (min-width: 768px) {
+        width: 47%;
+    }
+
+    @media only screen and (max-width: 767px) {
+        width: 100%;
+    }
+
+    display: block;
+}
+
+.service-product-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    flex-direction: column;
+    position: relative;
+
+    background: #fff;
+    padding: 30px 15px 20px 20px;
+    // border-top-left-radius: 10px;
+    // border-bottom-left-radius: 10px;
+    // border-left: 5px solid rgba(57, 59, 68, 0.631372549);
+    // border-bottom: 5px solid rgba(57, 59, 68, 0.631372549);
+    box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.4);
+
+    .details {
+        font-size: 18px;
+        padding: 0 10px 10px;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #B9BDCF;
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .service-id {
+        margin-right: 25px;
+    }
+
+    code {
+        margin-top: 10px;
+        padding: 5px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+    }
+
+    .flex-body {
+        align-items: center;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+        margin-right: 10px;
+    }
+
+    .edit {
+        margin-top: 20px;
+    }
+
+    .edit-action {
+        padding: 0 10px;
+    }
+
+    .delete-elem {
+        width: 15px;
+        height: 15px;
+        float: right;
+        position: absolute;
+        right: 0;
+        top: 15px;
+        cursor: pointer;
+    }
+}

@@ -1,0 +1,135 @@
+@import url('../src/assets/scss/font.scss');
+
+/* You can add global styles to this file, and also import other style files */
+body {
+    font-weight: 800;
+    font-family: 'robotoThin';
+    font-size: 14px;
+    color: #393B44;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0 auto;
+    background-color: #F6F7FB;
+  }
+
+  code {
+    background-color: rgba(175, 184, 193, 0.6);
+    border-radius: 6px;
+    padding: 2px 1px;
+    display: block;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 8px 0;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  footer a {
+    display: flex;
+    align-items: center;
+  }
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.flex-body {
+  display: flex;
+}
+
+button {
+  min-width: 85px;
+  height: 48px;
+  border: 2px solid #334680;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 14px;
+  color: #334680;
+  background-color: white;
+  cursor: pointer;
+  letter-spacing: 2px;
+
+  &:hover {
+    color: white;
+    background: #334680;
+  }
+}
+
+.primary-button {
+  color: white;
+  background: #334680;
+  height: 35px;
+  font-size: 16px;
+
+  &:hover {
+    background: white;
+    color: #334680;
+  }
+}
+
+img {
+  filter: contrast(0.58);
+}
+
+.style-blinker { 
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #393b443b;
+}
+
+.style-blinker::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  background-color: #3CCF4E;
+  vertical-align: top;
+  z-index: 1;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  -webkit-animation: blink 1s step-end infinite;
+  animation: blink 1s step-end infinite;
+}
+
+@-webkit-keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+@keyframes blink {
+  0% { opacity: 1.0; }
+  50% { opacity: 0.0; }
+  100% { opacity: 1.0; }
+}
+
+.line-break-anywhere {
+  line-break: anywhere;
+}

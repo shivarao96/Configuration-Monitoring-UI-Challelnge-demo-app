@@ -1,0 +1,118 @@
+.data-status {
+    background-color: #f6ecec;
+    padding: 5px 10px;
+    font-size: 24px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+
+  .configuration-article {
+    font-size: 18px;
+    background-color: #ecf6ef;
+    padding: 30px;
+    margin-top: 18px;
+    line-height: 24px;
+    letter-spacing: 1px;
+
+    img {
+        width: 100%;
+    }
+
+  }
+
+  .create-new-element {
+    padding: 15px;
+  }
+  .action-info {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 10px;
+    border-bottom: 2px solid #B9BDCF;
+  }
+
+  .user-data-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+    .filter-img {
+      width: 25px;
+      height: 25px;
+      margin-left: 20px;
+      cursor: pointer;
+    }
+
+    .filter-user-data {
+      position: relative;
+    }
+
+    .fitler-popup {
+      position: absolute;
+      background: white;
+      box-shadow: 1px 7px 14px -5px rgba(0, 0, 0, 0.4);
+      right: 0;
+      top: 45px;
+      padding: 20px;
+      z-index: 5;
+
+      .apply {
+        height: 36px;
+        font-size: 12px;
+        min-width: 60px;
+        margin-left: 12px;
+      }
+
+      .filter-selector {
+        align-items: flex-end;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .save-changes {
+    margin-top: 10px;
+  }
+
+  .selected-filter {
+    max-width: 100px;
+    height: 15px;
+    background-color: #393B44;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 10px;
+    line-break: anywhere;
+    cursor: pointer;
+    margin: 8px 0;
+
+    img {
+      width: 15px;
+      height: 15px;
+      filter: invert(1);
+    }
+  }
+
+  .reupload-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    align-items: center;
+    border: 1px solid;
+    cursor: pointer;
+    padding: 5px;
+
+    .label {
+      margin-right: 10px;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }

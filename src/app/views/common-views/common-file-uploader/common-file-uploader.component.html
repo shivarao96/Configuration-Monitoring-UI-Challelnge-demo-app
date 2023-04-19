@@ -1,0 +1,23 @@
+<div *ngIf="!fileName || fileName === ''">
+  <div class="dropzone" fileDragDrop (filesChangeEmiter)="onFileDropped($event)">
+    <div class="text-wrapper">
+      <div class="centered">
+        <input type="file" name="file" id="file" (change)="onFileSelected($event)" accept=".config,.log">
+        <label for="file"><span class="textLink">Select your file</span> or Drop it here!</label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="file-upload" *ngIf="fileName && fileName !== ''">
+  <div class="current-uploaded-file">
+    {{fileName}}
+  </div>
+  <img class="placeholder-img" src="../../../../assets/images/documents.png" />
+  <button class="upload-btn"
+    (click)="uploadFile()"> Upload
+  </button>
+  <button class="cancel-btn" (click)="removeFile()">
+    Cancel
+  </button>
+</div>

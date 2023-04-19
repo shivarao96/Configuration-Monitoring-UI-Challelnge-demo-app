@@ -1,0 +1,138 @@
+.common-container {
+    padding: 40px 20px;
+    font-size: 18px;
+    font-family: inherit;
+    font-weight: inherit;
+    border: 2px solid #B9BDCF;
+    
+    .heading {
+        font-family: "robotoBold";
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+}
+
+.current-accessed-instance {
+    margin-bottom: 20px;
+}
+
+.instance-container {
+    padding: 10px;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+}
+.meta-info-c {
+  margin-bottom: 10px;
+  margin-right: 20px;
+}
+.clients-info {
+    padding-top: 10px;
+    border-top: 2px solid;
+}
+
+.instance-container {
+    margin-bottom: 10px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}
+
+.code-view {
+    font-family: monospace;
+    color: white;
+    padding: 1px 5px;
+    background-color: #1d1e22;
+    border-radius: 12px;
+}
+
+  .instance-wrapper {
+    display: flex;
+
+    .instance-id {
+        margin-left: 20px;
+    }
+  }
+
+  .configuration-article {
+    font-size: 18px;
+    background-color: #ecf6ef;
+    padding: 30px;
+    margin-top: 18px;
+    line-height: 24px;
+    letter-spacing: 1px;
+
+    img {
+        width: 100%;
+    }
+  }
+
+  .ecmg {
+    filter: invert(1);
+    margin-top: 10px;
+  }
+
+  .data-status {
+    background-color: #f6ecec;
+    padding: 5px 10px;
+    font-size: 24px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 30px;
+  }
+
+  .download-system-config {
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #393B44;
+    border-radius: 99px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    img {
+        width: 20px;
+        height: 20px;
+        filter: invert(0.9);
+    }
+  }
+
+  .instance-shared-property {
+    position: relative;
+  }
+
+  .allowed-client {
+    margin-bottom: 10px;
+  }
+
+  code {
+    margin-left: 8px;
+  }
+
+  .reupload-action {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    align-items: center;
+    border: 1px solid;
+    cursor: pointer;
+    padding: 5px;
+
+    .label {
+      margin-right: 10px;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
