@@ -3,8 +3,10 @@
     border-radius: 4px;
     display: block;
     background: white;
-    padding: 30px;
+    padding: 10px;
     margin-bottom: 10px;
+    display: block;
+    position: relative;
 }
 
 .property-description {
@@ -13,17 +15,17 @@
     line-height: 24px;
     letter-spacing: 2px;
     padding: 20px;
-    background: #d9d9d9a1;
+    background: #393B44;
     margin-top: 20px;
     border-radius: 12px;
-    color: #334680;
+    color: white;
 }
 .property-name {
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
     line-height: 28px;
-    color: #334680;
+    color: #393B44;
     font-family: "robotoBold";
     letter-spacing: 1px;
 }
@@ -39,7 +41,7 @@ button {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 5px;
     align-items: center;
 
     input {
@@ -92,4 +94,25 @@ button {
     button {
         margin-bottom: 10px;
     }
+}
+
+.question {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    img {
+        width: inherit;
+        height: inherit;
+        cursor: pointer;
+    }
+}
+
+.fitler-popup {
+    position: absolute;
+    width: 80vw;
+    right: 5px;
+    top: 5px;
+    z-index: 4;
 }

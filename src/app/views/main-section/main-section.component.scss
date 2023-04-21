@@ -75,7 +75,13 @@
         cursor: pointer;
 
         &.selected {
-            border-bottom: 2px solid #393B44;
+            background-color: #393B44;
+            color: white;
+            font-size: 26px;
+            align-items: center;
+            padding-top: 10px !important;
+            letter-spacing: 4px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
         &:nth-child(1) {

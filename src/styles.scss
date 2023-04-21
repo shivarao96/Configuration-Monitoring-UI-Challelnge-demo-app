@@ -61,32 +61,34 @@ body {
 button {
   min-width: 85px;
   height: 48px;
-  border: 2px solid #334680;
-  border-radius: 4px;
+  border: 2px solid #393B44;
+  // border-radius: 4px;
   font-style: normal;
   font-weight: 700;
   font-size: 20px;
   line-height: 14px;
-  color: #334680;
+  color: #393B44;
   background-color: white;
   cursor: pointer;
   letter-spacing: 2px;
+  box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
   &:hover {
     color: white;
-    background: #334680;
+    background: #393B44;
   }
 }
 
 .primary-button {
   color: white;
-  background: #334680;
-  height: 35px;
-  font-size: 16px;
+  background: #393B44;
+  height: 35px !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
 
   &:hover {
     background: white;
-    color: #334680;
+    color: #393B44;
   }
 }
 
@@ -132,4 +134,34 @@ img {
 
 .line-break-anywhere {
   line-break: anywhere;
+}
+
+.tooltip-container {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  padding: 6px 12px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: initial;
+  color: white;
+  width: auto;
+  background: #111111ee;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translate(-50%, -30%);
+  animation: tooltip-slide 0.18s ease-out 0.5s;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@keyframes tooltip-slide {
+0% {
+  opacity: 0;
+  transform: translate(-50%, -30%);
+}
+100% {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
 }

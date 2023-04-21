@@ -1,22 +1,25 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, Output, Renderer2, ViewChild } from '@angular/core';
 import { SystemConfigHandlerService } from '@app/services/systemConfigHandler/system-config-handler.service';
 import { ToastHandlerService, ToastStatus } from '@app/services/toastHandler/toast-handler.service';
 
 @Component({
-  selector: 'app-system-property-handler',
-  templateUrl: './system-property-handler.component.html',
-  styleUrls: ['./system-property-handler.component.scss']
+    selector: 'app-system-property-handler',
+    templateUrl: './system-property-handler.component.html',
+    styleUrls: ['./system-property-handler.component.scss']
 })
 export class SystemPropertyHandlerComponent {
 
+    @ViewChild('filtertogglebtn') filtertogglebtn: ElementRef | undefined;
+    @ViewChild('filterpopup') filterPopup: ElementRef | undefined;
+    showFilterPopup: boolean = false;
     propertyCurrentValue: string = '';
     placeholderValue: string = '';
     propertyName: string = '';
     propertyDescription: string = '';
     @Input() set propertyMetaData(val: any) {
-        if(val) {
-            for(let key in val) {
-                if(key === 'description') {
+        if (val) {
+            for (let key in val) {
+                if (key === 'description') {
                     this.propertyDescription = val[key];
                 } else {
                     this.propertyName = key;
@@ -31,10 +34,20 @@ export class SystemPropertyHandlerComponent {
     inputVal: string = '';
     showLoader: boolean = false;
 
-    constructor(private systemConfig: SystemConfigHandlerService, private toastHandler: ToastHandlerService) {}
+    constructor(
+        private systemConfig: SystemConfigHandlerService,
+        private toastHandler: ToastHandlerService,
+        private renderer: Renderer2,
+    ) {
+        this.renderer.listen('window', 'click', (e: Event) => {
+            if (e.target !== this.filtertogglebtn?.nativeElement && e.target !== this.filterPopup?.nativeElement && !this.filterPopup?.nativeElement.contains(e.target)) {
+                this.showFilterPopup = false;
+            }
+        });
+    }
 
     propAction(): void {
-        if(this.editActioninitiated) {
+        if (this.editActioninitiated) {
             this.showLoader = true;
             this.systemConfig.updateSystemConfig({
                 key: this.propertyName,
@@ -56,5 +69,9 @@ export class SystemPropertyHandlerComponent {
     cancelEdit() {
         this.editActioninitiated = false;
     }
-    
+
+    toggleFilter() {
+        this.showFilterPopup = !this.showFilterPopup;
+    }
+
 }

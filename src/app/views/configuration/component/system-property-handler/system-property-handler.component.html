@@ -1,15 +1,24 @@
-
 <div class="property-info" *ngIf="propertyName">
     <div class="property-name line-break-anywhere">{{propertyName}}</div>
     <div class="prop-val-action">
         <div class="input-action-container">
-            <input [ngClass]="{'input-access-disabled' : !editActioninitiated}" type="text" [(ngModel)]="propertyCurrentValue" [placeholder]="'...' + placeholderValue" [disabled]="!editActioninitiated" />
-            <img [ngClass]="{'spin-loader' : showLoader}" class="save-loader" src="../../../../../assets/images/reload.png" alt="">
+            <input [ngClass]="{'input-access-disabled' : !editActioninitiated}" type="text"
+                [(ngModel)]="propertyCurrentValue" [placeholder]="'...' + placeholderValue"
+                [disabled]="!editActioninitiated" />
+            <img [ngClass]="{'spin-loader' : showLoader}" class="save-loader"
+                src="../../../../../assets/images/reload.png" alt="">
         </div>
         <div class="action-container">
-            <button [ngClass]="{'disable-pointer' : showLoader}" (click)="propAction()">{{ !editActioninitiated ? 'Edit' : 'Save'}}</button>
-            <button [ngClass]="{'disable-pointer' : showLoader}" *ngIf="editActioninitiated" (click)="cancelEdit()">Cancel</button>
+            <button [ngClass]="{'disable-pointer' : showLoader}" (click)="propAction()">{{ !editActioninitiated ? 'Edit'
+                : 'Save'}}</button>
+            <button [ngClass]="{'disable-pointer' : showLoader}" *ngIf="editActioninitiated"
+                (click)="cancelEdit()">Cancel</button>
+        </div>
+        <div class="question">
+            <img src="../../../../../assets/images/question.png" (click)="toggleFilter()" #filtertogglebtn/>
+            <div *ngIf="showFilterPopup" class="fitler-popup" #filterpopup>
+                <div class="property-description line-break-anywhere" *ngIf="propertyDescription">{{propertyDescription}}</div>
+            </div>
         </div>
     </div>
 </div>
-<div class="property-description line-break-anywhere" *ngIf="propertyDescription">{{propertyDescription}}</div>
